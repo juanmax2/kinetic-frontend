@@ -1,5 +1,6 @@
 import './App.css'
-import { RegisterForm } from './user/components/RegisterForm'
+import { LoginForm } from './user/components/loginForm/LoginForm'
+import { RegisterPage } from './pages/RegisterPage'
 // import { ExercisesList } from './exercises/components/ExercisesList'
 
 function App() {
@@ -8,7 +9,8 @@ function App() {
   return (
     <>
       {/* <ExercisesList /> */}
-      <RegisterForm />
+      <RegisterPage />
+      <LoginForm />
     </>
   )
 }

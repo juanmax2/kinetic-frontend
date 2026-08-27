@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import { registerSchema, type FormValues } from "./registerForm/schema/registerSchema";
 import { InputForm } from "../../components/InputForm";
 import { userService } from "../service/User.service";
+import { Button } from "../../components/Button";
 
 
 export function RegisterForm() {
