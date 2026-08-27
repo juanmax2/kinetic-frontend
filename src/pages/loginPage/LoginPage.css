@@ -1,0 +1,20 @@
+.img-logo-container {
+    display: flex;
+    justify-content: center;
+}
+
+.logo-image {
+    width: 100px;
+    margin: 3rem 0;
+}
+
+@media (min-width: 412px) {
+    .logo-image {
+        width: 150px;
+    }
+}
+@media (min-width: 768px) {
+    .logo-image {
+        width: 300px;
+    }
+}

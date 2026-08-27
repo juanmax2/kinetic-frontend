@@ -4,7 +4,7 @@ import { loginSchema, type FormValuesLogin } from "./schema/loginSchema";
 import { InputForm } from "../../../components/InputForm";
 import { Button } from "../../../components/Button";
 import { useAuth } from "../../../store/useAuth.store";
-
+import './LoginForm.css'
 
 export function LoginForm() {
 
@@ -27,7 +27,7 @@ export function LoginForm() {
     }
 
     return (
-        <section className="login-form-section">
+        <section className="login-form-container">
 
             <form onSubmit={handleSubmit(onSubmit)} method="POST">
                 <InputForm 

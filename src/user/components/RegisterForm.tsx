@@ -4,7 +4,7 @@ import { registerSchema, type FormValues } from "./registerForm/schema/registerS
 import { InputForm } from "../../components/InputForm";
 import { userService } from "../service/User.service";
 import { Button } from "../../components/Button";
-
+import './RegisterForm.css'
 
 export function RegisterForm() {
 
@@ -65,7 +65,7 @@ export function RegisterForm() {
                     type="password"
                     control={control}
                 />
-                <button type="submit">Register</button>
+                <Button type="submit">Register</Button>
             </form>
         </section>
     )
