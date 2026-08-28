@@ -1,12 +1,15 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { registerSchema, type FormValues } from "./registerForm/schema/registerSchema";
-import { InputForm } from "../../components/InputForm";
+import { InputForm } from "../../components/inputForm/InputForm";
 import { userService } from "../service/User.service";
-import { Button } from "../../components/Button";
+import { Button } from "../../components/button/Button";
 import './RegisterForm.css'
+import { useNavigate } from "react-router-dom";
 
 export function RegisterForm() {
+
+    const navigate = useNavigate()
 
     const { control, handleSubmit, reset } = useForm({
         resolver: zodResolver(registerSchema),
@@ -29,7 +32,7 @@ export function RegisterForm() {
             const response = await userService.registerUser(newData);
             console.log("Usuario registrado con éxito!", response.data)
             reset()
-            //Futuramente redirigir al login
+            navigate('/login', { replace: true })
         } catch (error) {
             console.error("Register user error: ", error)
         }

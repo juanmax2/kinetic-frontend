@@ -1,0 +1,6 @@
+.routine-container {
+    background-color: var(--secondary-bg-color);
+    padding: 1rem;
+    border-radius: 1rem;
+    color: var(--primary-color)
+}

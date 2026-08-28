@@ -1,0 +1,25 @@
+
+.header {
+    display: flex;
+    padding: 1rem 2rem;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--secondary-bg-color);
+}
+
+.nav-list {
+    padding: 0;
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+}
+
+.logo-header {
+    width: 90px;
+}
+
+@media (max-width: 374px) {
+    .logo-header {
+        width: 65px;
+    }
+}

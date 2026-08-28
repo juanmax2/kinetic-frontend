@@ -1,0 +1,43 @@
+.user-welcome-section {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.welcome-title {
+    margin: 0;
+}
+
+.username-span {
+    color: var(--primary-color);
+}
+
+.frase-motivadora {
+    color: var(--primary-color);
+    font-style: italic;
+}
+
+.information-container {
+    display: flex;
+    gap: 1rem;
+}
+.peso-card {
+    background-color: var(--secondary-bg-color);
+    width: 45%;
+    height: 100px;
+    padding: 10px
+}
+
+.calorias-card{
+    background-color: var(--secondary-bg-color);
+    width: 45%;
+    height: 100px;
+    padding: 10px;
+}
+
+@media (min-width: 768px) {
+    .user-welcome-section {
+        width: 60%;
+        margin: auto;
+    }
+}

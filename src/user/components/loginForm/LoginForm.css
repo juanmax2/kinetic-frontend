@@ -25,7 +25,15 @@
 .login-form-container input {
     background-color: var(--primary-bg-color);
     border: none;
-    border-bottom: 1px solid var(--primary-color)
+    border-bottom: 1px solid var(--primary-color);
+    color: white;
+}
+
+.login-form-container input:focus {
+    background-color: var(--primary-color);
+    border: none;
+    border-bottom: 1px solid var(--primary-color);
+    color: black;
 }
 
 .login-form-container button{

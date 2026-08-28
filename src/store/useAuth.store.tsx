@@ -7,6 +7,10 @@ interface LoginCredentials {
     email?: string;
     password: string;
 }
+interface LoginResponse {
+    access: string;
+    user: User;
+}
 
 interface AuthStoreType {
     user: User | null;
@@ -22,15 +26,15 @@ export const useAuth = create<AuthStoreType>()(
     (set) => ({
         user: null,
         isLoggedIn: false,
-        isLoading: false,
+        isLoading: true,
 
         login: async (credentials) => {
             set({ isLoading: true })
             try {
-                const response = await api.post<User>('/auth/login/', credentials)
+                const response = await api.post<LoginResponse>('/auth/login/', credentials)
 
                 set({
-                    user: response.data,
+                    user: response.data.user,
                     isLoggedIn: true,
                     isLoading: false,
                 })
@@ -44,7 +48,7 @@ export const useAuth = create<AuthStoreType>()(
         logout: async () => {
             set({ isLoading: true })
             try {
-                const response = await api.post('/auth/logout')
+                const response = await api.post('/auth/logout/')
                 console.log(response)
                 set({
                     user: null,
@@ -60,14 +64,19 @@ export const useAuth = create<AuthStoreType>()(
 
         checkAuth: async () => {
             set({ isLoading: true })
+            console.log(useAuth.getState().isLoading)
             try {
 
                 const response = await api.get<User>('/users/me/');
+                console.log("CHECKAUTH EXITOSO:", response.data)
+
                 set({
                     user: response.data,
                     isLoggedIn: true,
                     isLoading: false,
                 })
+                console.log(useAuth.getState().isLoading)
+                console.log("ISLOGGEDIN", useAuth.getState().isLoggedIn)
             } catch (error) {
                 set({
                     user: null,
