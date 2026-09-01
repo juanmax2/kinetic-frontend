@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 import { useAuth } from "../../../../store/useAuth.store"
 import './Header.css'
 
@@ -16,7 +17,7 @@ export function Header() {
                 <ul className="nav-list">
                     {isLoggedIn ? (
                         <>
-                            <li>Mi perfil</li>
+                            <li><Link to={'/update-profile'} replace>Update Profile</Link></li>
                             <li onClick={logout}>Logout</li>
                         </>
                     ) : (

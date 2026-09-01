@@ -15,6 +15,7 @@ export type GoalType = keyof typeof Goal;
 
 export interface UserProfile {
     gender?: GenderType; 
+    age?: number;
     weight?: number | null;
     height?: number | null;
     goal: GoalType;

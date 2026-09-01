@@ -18,6 +18,11 @@
     width: 90px;
 }
 
+.header a {
+    color: white;
+    text-decoration: none;
+}
+
 @media (max-width: 374px) {
     .logo-header {
         width: 65px;

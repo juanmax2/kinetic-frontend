@@ -1,6 +1,7 @@
 import { create } from "zustand";
-import type { User } from "../user/models/User.model";
+import type { GenderType, GoalType, User } from "../user/models/User.model";
 import api from "../api/index";
+
 
 interface LoginCredentials {
     username: string;
@@ -12,6 +13,16 @@ interface LoginResponse {
     user: User;
 }
 
+interface ProfileUpdater {
+    username?: string;
+    email?: string;
+    age?: number | null;
+    weight?: number | null;
+    height?: number | null;
+    goal?: GoalType;
+    gender?: GenderType;
+}
+
 interface AuthStoreType {
     user: User | null;
     isLoggedIn: boolean;
@@ -19,6 +30,7 @@ interface AuthStoreType {
     login: (credentials: LoginCredentials) => Promise<void>;
     logout: () => Promise<void>;
     checkAuth: () => Promise<void>;
+    updateProfile: (updaters: ProfileUpdater) => Promise<void>;
 }
 
 
@@ -59,6 +71,24 @@ export const useAuth = create<AuthStoreType>()(
                 set({ isLoading: false });
                 console.error("Logout error:", error)
                 throw error;
+            }
+        },
+
+        updateProfile: async (updatedData) => {
+            set({ isLoading: true })
+
+            try {
+                const response = await api.put('/users/me/', updatedData);
+
+                set({
+                    user: response.data
+                })
+                console.log("Update Profile Succes")
+
+            }catch(err) {
+                console.error(err)
+            }finally {
+                set({ isLoading: false })
             }
         },
 

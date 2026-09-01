@@ -22,22 +22,44 @@
     gap: 1rem;
 }
 .peso-card {
-    background-color: var(--secondary-bg-color);
-    width: 45%;
-    height: 100px;
-    padding: 10px
-}
-
-.calorias-card{
+    position: relative;
     background-color: var(--secondary-bg-color);
     width: 45%;
     height: 100px;
     padding: 10px;
+    background-image: url('/bascula.svg');
+    background-repeat: no-repeat;
+    background-size: 40px; 
+    background-position: right 10px bottom 20px;
+    
+}
+
+.calorias-card{
+    position: relative;
+    background-color: var(--secondary-bg-color);
+    width: 45%;
+    height: 100px;
+    padding: 10px;
+    background-image: url('/calories.svg');
+    background-repeat: no-repeat;
+    background-size: 70px; 
+    background-position: right 0px bottom 10px;
 }
 
 @media (min-width: 768px) {
     .user-welcome-section {
         width: 60%;
         margin: auto;
+    }
+}
+
+@media (min-width: 1024px) {
+    .user-welcome-section {
+        width: 50%;
+        margin: auto;
+    }
+    .information-container {
+    display: flex;
+    gap: 2rem;
     }
 }
