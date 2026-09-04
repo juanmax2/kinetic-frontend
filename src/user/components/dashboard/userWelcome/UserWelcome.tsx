@@ -15,7 +15,7 @@ export function UserWelcome() {
         <section className="user-welcome-section">
             <h1 className="welcome-title">Bienvenido, <span className="username-span"> {user?.username}</span></h1>
 
-            <p className="frase-motivadora">"El esfuerzo de hoy es el resultado de mañana</p>
+            <p className="frase-motivadora">"El esfuerzo de hoy es el resultado de mañana"</p>
             
             <div className="information-container">
                 <article className="peso-card">
