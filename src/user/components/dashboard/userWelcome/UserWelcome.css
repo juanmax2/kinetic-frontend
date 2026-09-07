@@ -19,7 +19,8 @@
 
 .information-container {
     display: flex;
-    gap: 1rem;
+    flex-direction: row;
+    gap: 0.5rem;
 }
 .peso-card {
     position: relative;
