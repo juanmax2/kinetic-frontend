@@ -1,5 +1,7 @@
 import { DashboardPage } from "../../pages/dashboardPage/DashboardPage";
+import { EditRoutinePage } from "../../pages/editRoutinePage/EditRoutinePage";
 import { NewRoutinePage } from "../../pages/newRoutinePage/NewRoutinePage";
+import { RoutineDetailPage } from "../../pages/routineDetailPage/RoutineDetailPage";
 import { UpdateProfilePage } from "../../pages/updateProfilePage/UpdateProfilePage";
 import { PrivateGuard } from "../components/PrivateGuard";
 
@@ -19,6 +21,14 @@ export const privateRouter = [
             {
                 path: '/routines/new',
                 element: <NewRoutinePage />
+            },
+            {
+                path: '/routines/:id',
+                element: <RoutineDetailPage />
+            },
+            {
+                path: '/routines/:id/edit',
+                element: <EditRoutinePage />
             }
         ]
     }

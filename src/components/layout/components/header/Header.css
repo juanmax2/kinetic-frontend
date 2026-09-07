@@ -22,6 +22,22 @@
     color: white;
     text-decoration: none;
 }
+.header a:hover {
+    color: var(--primary-color);
+    text-decoration: underline;
+    text-underline-offset: 8px;
+}
+
+.logout {
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+}
+.logout:hover {
+    color: var(--primary-color);
+    text-decoration: underline;
+    text-underline-offset: 8px;
+}
 
 @media (max-width: 374px) {
     .logo-header {

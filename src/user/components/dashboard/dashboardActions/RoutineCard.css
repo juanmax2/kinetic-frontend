@@ -1,6 +1,20 @@
 .routine-container {
     background-color: var(--secondary-bg-color);
-    padding: 1rem;
     border-radius: 1rem;
-    color: var(--primary-color)
+}
+
+.routine-container a {
+    text-decoration: none;
+    color: var(--primary-color);
+    width: 100%;
+    display: block;
+    padding: 1rem;
+}
+
+.routine-container:hover {
+    background-color: var(--primary-color);
+}
+
+.routine-container a:hover {
+    color: var(--secondary-bg-color);
 }

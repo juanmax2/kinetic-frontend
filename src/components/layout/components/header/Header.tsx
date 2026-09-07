@@ -18,7 +18,7 @@ export function Header() {
                     {isLoggedIn ? (
                         <>
                             <li><Link to={'/update-profile'} replace>Update Profile</Link></li>
-                            <li onClick={logout}>Logout</li>
+                            <li className="logout" onClick={logout}>Logout</li>
                         </>
                     ) : (
                         <>
