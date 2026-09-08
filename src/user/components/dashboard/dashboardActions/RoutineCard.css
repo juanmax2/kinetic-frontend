@@ -2,7 +2,10 @@
     background-color: var(--secondary-bg-color);
     border-radius: 1rem;
 }
-
+.routine-container:hover {
+    background-color: var(--primary-color);
+    color: var(--secondary-bg-color);
+}
 .routine-container a {
     text-decoration: none;
     color: var(--primary-color);

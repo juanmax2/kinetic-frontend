@@ -3,6 +3,7 @@ import { EditRoutinePage } from "../../pages/editRoutinePage/EditRoutinePage";
 import { NewRoutinePage } from "../../pages/newRoutinePage/NewRoutinePage";
 import { RoutineDetailPage } from "../../pages/routineDetailPage/RoutineDetailPage";
 import { UpdateProfilePage } from "../../pages/updateProfilePage/UpdateProfilePage";
+import { WorkoutSessionPage } from "../../pages/workoutPage/WorkoutSessionPage";
 import { PrivateGuard } from "../components/PrivateGuard";
 
 
@@ -29,6 +30,10 @@ export const privateRouter = [
             {
                 path: '/routines/:id/edit',
                 element: <EditRoutinePage />
+            },
+            {
+                path: '/workouts/session/:id',
+                element: <WorkoutSessionPage />
             }
         ]
     }

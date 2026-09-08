@@ -1,0 +1,24 @@
+
+.workout-session-container {
+    width: 90%;
+    margin: auto;
+}
+.workout-session-title {
+    text-align: center;
+}
+.workout-session-list {
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+@media (min-width: 768px) {
+    .workout-session-container {
+        width: 70%;
+    }
+    .workout-session-title {
+        text-align: left;
+    }
+}

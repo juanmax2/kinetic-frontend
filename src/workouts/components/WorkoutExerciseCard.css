@@ -1,0 +1,23 @@
+
+.workout-exercise-container {
+    display: flex;
+    gap: 1.5rem;
+    padding: 1.5rem;
+    background-color: var(--secondary-bg-color);
+    border-radius: 10px;
+    align-items: baseline;
+}
+
+.weight {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.weight input{
+    width: 30px;
+    background-color: var(--primary-bg-color);
+    border: none;
+    border-bottom: 1px solid var(--primary-color);
+    color: white;
+}   
