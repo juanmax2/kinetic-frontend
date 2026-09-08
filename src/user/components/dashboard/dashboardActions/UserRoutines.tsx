@@ -19,7 +19,7 @@ export function UserRoutines() {
     return (
         <>
             <div className="routine-list-container">
-                <h2 className="routine-list-title">Mis Rutinas</h2>
+                <h2 className="routine-list-title">My Routines</h2>
                 <Link className="new-routine-btn" to="/routines/new">New Routine</Link>                
                 <ul className="routine-list">
                     {data?.map(routine => (

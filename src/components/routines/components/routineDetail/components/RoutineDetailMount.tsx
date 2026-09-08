@@ -24,7 +24,10 @@ export function RoutineDetailMount({routine}: Props) {
                     <CardExerciseDetail key={exercise.exercise} exercise={exercise} />
                 ))}
             </ul>
-            <Link className="edit-routine-btn" to={`/routines/${routine.id}/edit`}>Edit</Link>
+            <div className="routine-button-container">
+                <Link className="routine-btn" to={`/routines/${routine.id}/edit`}>Edit</Link>
+                <Link className="routine-btn" to={`/dashboard`}>Routines</Link>
+            </div>
         </section>
     )
 }

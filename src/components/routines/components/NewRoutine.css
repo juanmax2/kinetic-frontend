@@ -173,6 +173,21 @@
     .exercise-selector-add {
         width: 70%;
     }
+    .exercises-change-container {
+        width: 70%;
+        
+    }
+    .exercises-change-container ul {
+        gap: 0.5rem;
+    }
+    .exercises-change-container ul li {
+        flex-direction: row;
+        padding: 2rem;
+        align-items: center;
+    }
+    .container-numbers {
+        justify-content: center;
+    }
 }
 
 .new-routine-form button {
@@ -217,7 +232,9 @@
     padding: 10px;
     border-radius: 10px;
     width: 100%;
+    align-items: center;
 }
+
 
 .exercise-sets {
     display: flex;
@@ -226,6 +243,10 @@
 
 .exercise-sets input {
     width: 30px;
+    background-color: var(--primary-bg-color);
+    border: none;
+    border-bottom: 1px solid var(--primary-color);
+    color: white;
 }
 
 .exercise-reps {
@@ -234,8 +255,39 @@
 }
 .exercise-reps input {
     width: 60px;
+    background-color: var(--primary-bg-color);
+    border: none;
+    border-bottom: 1px solid var(--primary-color);
+    color: white;
 }
 .container-numbers {
     display: flex;
     gap: 1rem;
+}
+.dragging-overlay {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    background-color: var(--secondary-bg-color);
+    padding: 10px;
+    border-radius: 10px;
+    width: 100%;
+    align-items: center;
+}
+.exercise-inputs {
+    display: flex;
+    gap: 1rem;
+}
+
+@media (min-width: 837px) {
+    .exercises-change-container {
+        width: 80%;
+    }
+    .list-exercises-change {
+        width: 100%;
+    }
+    .list-exercises-change li {
+        display: grid;
+        grid-template-columns: 4fr 1fr 1fr;
+    }
 }

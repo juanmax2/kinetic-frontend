@@ -1,5 +1,6 @@
 import type { RoutineExercise } from "../models/Routine.model";
 import { Button } from "../../button/Button";
+import { useSortable } from '@dnd-kit/sortable'
 
 interface Props {
     exercise: RoutineExercise;
@@ -9,14 +10,36 @@ interface Props {
 
 export function ExerciseRoutineCard({exercise, handleChangeValue, handleRemoveExercise}: Props) {
 
+    const {
+        attributes,
+        listeners,
+        setNodeRef,
+        transform,
+        transition
+    } = useSortable({ id: String(exercise.exercise) })
+
+    const style = transform 
+        ? {
+            transform: `translate(${transform.x}px)`,
+            transition
+
+        }
+        : undefined
+
     return (
-        <li className={`exercise-routine-${exercise.exercise_detail}`}>
+        <li 
+            ref={setNodeRef} 
+            style={style} 
+            {...attributes}
+            {...listeners}
+            className={`exercise-routine-${exercise.exercise_detail}`}
+        >
             <strong>
                 {exercise.exercise_detail}
             </strong>
             <div className="container-numbers">
                 <div className="exercise-sets">
-                    <label htmlFor="exercise-sets">Sets:</label>
+                    <label>Sets:</label>
                     <input 
                         onChange={(e) => handleChangeValue(exercise.exercise, 'target_sets', Number(e.target.value))} 
                         type="number" 

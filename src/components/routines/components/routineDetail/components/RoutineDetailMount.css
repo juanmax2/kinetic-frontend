@@ -19,9 +19,14 @@
     gap: 1rem;
 }
 
-.edit-routine-btn {
+.routine-button-container {
+    display: flex;
+    gap: 2rem;
+    margin: 1rem auto;
+}
+
+.routine-btn {
     display: inline-block;
-    margin: auto;
     border: none;
     border-radius: 6px;
     background-color: var(--secondary-bg-color);
@@ -30,7 +35,7 @@
     text-decoration: none;
 }
 
-.edit-routine-btn:hover {
+.routine-btn:hover {
     background-color: var(--primary-color);
     color: black;
 }

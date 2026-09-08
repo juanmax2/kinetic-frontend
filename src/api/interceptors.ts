@@ -1,19 +1,35 @@
-import type { AxiosInstance } from "axios";
+import type { AxiosInstance, InternalAxiosRequestConfig } from "axios";
 
+interface CustomAxiosRequestConfig extends InternalAxiosRequestConfig {
+    _retry?: boolean;
+}
 
 export const setupInterceptors = (instance: AxiosInstance) => {
     instance.interceptors.request.use(
-        (config) => {
-            //Añadir token authentication
-            return config
-        },
+        (config) => config,
         (error) => Promise.reject(error)
     );
 
     instance.interceptors.response.use(
         (response) => response,
-        (error) => {
-            console.error("Global API error:", error.response?.data || error.message);
+        async (error) => {
+            const originalRequest = error.config as CustomAxiosRequestConfig
+
+            if (error.response?.status === 401 && !originalRequest._retry) {
+                originalRequest._retry = true
+
+                try {
+
+                    await instance.post("auth/refresh/")
+
+                    return instance(originalRequest)
+                }catch (refreshError) {
+                    console.error("Session expired, please log in again.")
+                    window.location.href = '/login';
+                    return Promise.reject(refreshError)
+                }
+            }
+
             return Promise.reject(error)
         }
     );

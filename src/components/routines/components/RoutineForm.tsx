@@ -1,3 +1,22 @@
+import {
+    DndContext,
+    closestCenter,
+    KeyboardSensor,
+    PointerSensor,
+    useSensor,
+    useSensors,
+    type DragEndEvent,
+    DragOverlay,
+    type DragStartEvent
+} from '@dnd-kit/core'
+
+import {
+    arrayMove,
+    SortableContext,
+    sortableKeyboardCoordinates,
+    verticalListSortingStrategy
+} from '@dnd-kit/sortable'
+
 import { ExerciseSelector } from "../../../exercises/components/ExerciseSelector"
 import type { Routine, RoutineExercise } from "../models/Routine.model"
 import { ExerciseRoutineCard } from "./ExerciseRoutineCard"
@@ -35,7 +54,18 @@ export function RoutineForm({
     const [description, setDescription] = useState(
         initialData ? initialData.description : ""
     )
+    const [activeExercise, setActiveExercise] = useState<RoutineExercise | null>(null)
 
+    const sensors = useSensors(
+        useSensor(PointerSensor, {
+            activationConstraint: {
+                distance: 3,
+            },
+        }),
+        useSensor(KeyboardSensor, {
+            coordinateGetter: sortableKeyboardCoordinates,
+        })
+    )
 
 
     const handleAddExercise = (exercise: Exercise) => {
@@ -61,7 +91,7 @@ export function RoutineForm({
         setRoutineExercises(prev => prev.filter(ex => ex.exercise !== id))
     }
 
-    
+
     const handleSubmit = async (event: React.SubmitEvent<HTMLFormElement>) => {
         event.preventDefault()
 
@@ -72,8 +102,25 @@ export function RoutineForm({
         }
 
         onSubmit(newRoutine)
+    }
+    const handleDragStart = (event: DragStartEvent) => {
+        const { active } = event
+        const foundExercise = routineExercises.find(ex => String(ex.exercise) === active.id);
+        if (foundExercise) {
+            setActiveExercise(foundExercise)
+        }
+    }
 
+    const handleDragEnd = (event: DragEndEvent) => {
+        const { active, over } = event;
 
+        if (over && active.id !== over.id) {
+            setRoutineExercises((items) => {
+                const oldIndex = items.findIndex((item) => String(item.exercise) === active.id);
+                const newIndex = items.findIndex((item) => String(item.exercise) === over.id)
+                return arrayMove(items, oldIndex, newIndex)
+            })
+        }
     }
 
     return (
@@ -110,17 +157,43 @@ export function RoutineForm({
                 ) : (
                         <>
                             <h3>Routine</h3>
-                            <ul className="list-exercises-change">
-                                {routineExercises.map((exercise) => (
+                            <DndContext
+                                sensors={sensors}
+                                collisionDetection={closestCenter}
+                                onDragStart={handleDragStart}
+                                onDragEnd={handleDragEnd}
+                            >
+                                <SortableContext
+                                    items={routineExercises.map(ex => String(ex.exercise))}
+                                    strategy={verticalListSortingStrategy}
+                                >
+                                    <ul className="list-exercises-change">
+                                        {routineExercises.map((exercise) => (
 
-                                        <ExerciseRoutineCard 
-                                            key={exercise.exercise}
-                                            exercise={exercise}
-                                            handleChangeValue={handleChangeValue}
-                                            handleRemoveExercise={handleRemoveExercise}
-                                        />
-                                ))}
-                            </ul>
+                                                <ExerciseRoutineCard 
+                                                    key={exercise.exercise}
+                                                    exercise={exercise}
+                                                    handleChangeValue={handleChangeValue}
+                                                    handleRemoveExercise={handleRemoveExercise}
+                                                />
+                                        ))}
+                                    </ul>
+                                </SortableContext>
+
+                                <DragOverlay>
+                                    {activeExercise ? (
+                                        <div className="exercise-routine-card dragging-overlay">
+                                            <span className="drag-handle" style={{ cursor: 'grabbing', marginRight: '10px' }}>                      
+                                            </span>
+                                            <strong className='exercise-name'>{activeExercise.exercise_detail}</strong>
+                                            <div className="exercise-inputs">
+                                                <span>Sets: {activeExercise.target_sets}</span>
+                                                <span>Reps: {activeExercise.target_reps}</span>
+                                            </div>
+                                        </div>
+                                    ): null}
+                                </DragOverlay>
+                            </DndContext>
                         </>
                     )}
             </div>

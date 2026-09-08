@@ -22,7 +22,7 @@ export function UserWelcome() {
                     {user?.profile && (
                         <>
                             <h3>Actual weight</h3>
-                            <h4>{user.profile.weight}</h4>
+                            <h4>{user.profile.weight} Kg</h4>
                         </>
                     )}
                 </article>

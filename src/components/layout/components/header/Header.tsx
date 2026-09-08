@@ -12,7 +12,7 @@ export function Header() {
 
     return(
         <header className="header">
-            <img className="logo-header" src="/kinetic-logo.webp" alt="Kinetic logo" />
+            <Link to='/dashboard'><img className="logo-header" src="/kinetic-logo.webp" alt="Kinetic logo" /></Link>
             <nav className="nav-bar">
                 <ul className="nav-list">
                     {isLoggedIn ? (
