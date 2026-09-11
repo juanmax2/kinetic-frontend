@@ -1,11 +1,15 @@
+import type { ChangeEvent } from "react";
 import type { WorkoutSet } from "../models/WorkoutSession.model";
 import './WorkoutExerciseCard.css'
 
 interface WorkoutExerciseCardProps {
     exercise: WorkoutSet;
+    handleWeightChange: (id: number, weight: number) => void
 }
 
-export function WorkoutExerciseCard({exercise}: WorkoutExerciseCardProps) {
+
+
+export function WorkoutExerciseCard({exercise, handleWeightChange}: WorkoutExerciseCardProps) {
 
     return (
         <li className="workout-exercise-container">
@@ -20,7 +24,7 @@ export function WorkoutExerciseCard({exercise}: WorkoutExerciseCardProps) {
             </div>
             <div className="workout-exercise-information weight">
                 <label>Weight</label>
-                <input defaultValue={exercise.weight} />
+                <input onChange={(event: ChangeEvent<HTMLInputElement>) => handleWeightChange(exercise.id, Number(event.target.value))} value={exercise.weight ?? ""} />
             </div>
         </li>
     )

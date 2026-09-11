@@ -20,7 +20,7 @@ import {
 import { ExerciseSelector } from "../../../exercises/components/ExerciseSelector"
 import type { Routine, RoutineExercise } from "../models/Routine.model"
 import { ExerciseRoutineCard } from "./ExerciseRoutineCard"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import type { Exercise } from "../../../exercises/models/Exercice.model"
 
 export interface RoutineDataProps {
@@ -45,16 +45,24 @@ export function RoutineForm({
     submitButtonText
 }: RoutineFormProps) {
 
-    const [routineExercises, setRoutineExercises] = useState<RoutineExercise[]>(
-        initialData ? initialData.routine_exercises : []
+    const [routineExercises, setRoutineExercises] = useState<RoutineExercise[]>(() => {
+        if (initialData) return initialData.routine_exercises;
+        const saved = localStorage.getItem("routine_exercises")
+        return saved ? JSON.parse(saved) : [];
+    }
     )
-    const [name, setName] = useState(
-        initialData ? initialData.name : ""
-    )
-    const [description, setDescription] = useState(
-        initialData ? initialData.description : ""
+    const [name, setName] = useState(() => {
+        if (initialData) return initialData.name;
+        return localStorage.getItem("routine_name") || "";
+    }
+     )
+    const [description, setDescription] = useState(() => {
+        if (initialData) return initialData.description;
+        return localStorage.getItem("routine_description") || "";
+    }
     )
     const [activeExercise, setActiveExercise] = useState<RoutineExercise | null>(null)
+
 
     const sensors = useSensors(
         useSensor(PointerSensor, {
@@ -67,6 +75,18 @@ export function RoutineForm({
         })
     )
 
+
+    const mountLocalStorage = () => {
+        localStorage.setItem("routine_exercises", JSON.stringify(routineExercises));
+        localStorage.setItem("routine_name", name);
+        localStorage.setItem("routine_description", description || "");
+    }
+
+    useEffect(() => {
+        if (!initialData) {
+            mountLocalStorage()
+        }
+    }, [routineExercises, name, description, initialData])
 
     const handleAddExercise = (exercise: Exercise) => {
         if (routineExercises.some((ex) => ex.exercise === exercise.id)) return;
@@ -91,6 +111,12 @@ export function RoutineForm({
         setRoutineExercises(prev => prev.filter(ex => ex.exercise !== id))
     }
 
+    const cleanLocalStorage = () => {
+        localStorage.removeItem("routine_exercises")
+        localStorage.removeItem("routine_name")
+        localStorage.removeItem("routine_description")
+    }
+
 
     const handleSubmit = async (event: React.SubmitEvent<HTMLFormElement>) => {
         event.preventDefault()
@@ -102,6 +128,10 @@ export function RoutineForm({
         }
 
         onSubmit(newRoutine)
+        if (!initialData) {
+            cleanLocalStorage()
+        }
+        
     }
     const handleDragStart = (event: DragStartEvent) => {
         const { active } = event
