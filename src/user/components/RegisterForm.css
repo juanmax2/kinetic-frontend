@@ -12,7 +12,7 @@
 .register-form-container form {
     display: flex;
     flex-direction: column;
-    border: 1px solid var(--tertiary-color);
+    border: 1px solid var(--primary-color);
     width: 100%;
     text-align: center;
 }
@@ -42,4 +42,10 @@
 .register-form-container button:hover {
     background-color: var(--primary-color);
     color: black;
+}
+
+@media (min-width: 768px) {
+    .register-form-container {
+        width: 40%;
+    }
 }
