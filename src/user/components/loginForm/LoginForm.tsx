@@ -39,7 +39,7 @@ export function LoginForm() {
                 />
                 <InputForm 
                     name="password"
-                    label="password"
+                    label="Password"
                     control={control}
                     id="password"
                     type="password"

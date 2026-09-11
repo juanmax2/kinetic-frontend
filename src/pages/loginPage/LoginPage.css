@@ -5,7 +5,7 @@
 
 .logo-image {
     width: 100px;
-    margin: 3rem 0;
+    margin-top: 3rem;
 }
 
 @media (min-width: 412px) {
