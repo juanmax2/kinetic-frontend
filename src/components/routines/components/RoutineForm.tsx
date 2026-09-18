@@ -181,12 +181,13 @@ export function RoutineForm({
             <ExerciseSelector handleAddExercise={handleAddExercise} />
 
             <div className="exercises-change-container">
-                
+                <h3 className='create-routine-title'>Routine</h3>
                 {routineExercises.length === 0 ? (
+
                         <p>Not exercises yet...</p>
                 ) : (
                         <>
-                            <h3>Routine</h3>
+                            
                             <DndContext
                                 sensors={sensors}
                                 collisionDetection={closestCenter}
@@ -228,7 +229,7 @@ export function RoutineForm({
                     )}
             </div>
 
-            <button disabled={isPending} type="submit">
+            <button className='add-routine-btn' disabled={isPending} type="submit">
                 {isPending ? "saving..." : submitButtonText}
             </button>
         </form>

@@ -95,6 +95,13 @@
 .exercise-selector-add {
     width: 80%;
     margin: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.exercise-add-container {
+    display: flex;
+    flex-direction: column;
 }
 
 
@@ -105,6 +112,11 @@
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.exercise-add-container  .exercises-load-more-button {
+    margin: 1rem auto;
 }
 
 /* Exercise-card */
@@ -141,32 +153,31 @@
     padding: 6px 12px;
     display: inline-block;
 }
-
+.create-routine-title {
+    margin-bottom: 1rem;
+}
 .exercise-selector-container button:hover {
     background-color: var(--secondary-bg-color);
     color: white;
     border: 1px solid var(--primary-color);
 }
 
+
 @media (min-width: 768px) {
     .exercise-selector-container {
-        
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         width: 100%;
         margin: auto;
     }
-    .exercise-selector-container button {
-        margin-left: auto;
-
+    .exercise-selector-container .exercise-selector-add-btn {
+        margin: 0 0 0 auto;
     }
-
 }
 .exercises-change-container {
     margin: 1.5rem auto;
     width: 75%;
     margin: auto;
-
 }
 
 @media (min-width: 768px) {
