@@ -1,5 +1,6 @@
 import { DashboardPage } from "../../pages/dashboardPage/DashboardPage";
 import { EditRoutinePage } from "../../pages/editRoutinePage/EditRoutinePage";
+import { GraphicPages } from "../../pages/graphicsPage/GraphicsPage";
 import { NewRoutinePage } from "../../pages/newRoutinePage/NewRoutinePage";
 import { RoutineDetailPage } from "../../pages/routineDetailPage/RoutineDetailPage";
 import { UpdateProfilePage } from "../../pages/updateProfilePage/UpdateProfilePage";
@@ -34,6 +35,10 @@ export const privateRouter = [
             {
                 path: '/workouts/session/:id',
                 element: <WorkoutSessionPage />
+            },
+            {
+                path: '/workouts/graphics',
+                element: <GraphicPages />
             }
         ]
     }

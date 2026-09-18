@@ -1,4 +1,5 @@
 
+import { getPhrase } from "../../../../components/phrases/phrases";
 import { useAuth } from "../../../../store/useAuth.store";
 import './UserWelcome.css'
 
@@ -11,11 +12,12 @@ export function UserWelcome() {
         return <p>Cargando perfil...</p>
     }
 
+    const phrase = getPhrase()
     return(
         <section className="user-welcome-section">
             <h1 className="welcome-title">Bienvenido, <span className="username-span"> {user?.username}</span></h1>
 
-            <p className="frase-motivadora">"El esfuerzo de hoy es el resultado de mañana"</p>
+            <p className="frase-motivadora">{phrase}</p>
             
             <div className="information-container">
                 <article className="peso-card">

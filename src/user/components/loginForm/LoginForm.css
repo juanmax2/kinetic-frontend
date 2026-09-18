@@ -40,7 +40,6 @@
     display: block;
     width: 100%;
     border: none;
-    border-radius: 6px;
     background-color: var(--secondary-bg-color);
     color: white;
     padding: 6px 12px;

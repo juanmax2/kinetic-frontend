@@ -11,36 +11,121 @@
     padding: 0;
     list-style: none;
     display: flex;
-    gap: 1rem;
+    flex-direction: column;
 }
 
 .logo-header {
     width: 90px;
 }
 
-.header a {
+.header .nav-list a {
     color: white;
     text-decoration: none;
+    display: inline-block;
+    width: 100%;
+    padding: 0.5rem;
+    background-color: var(--primary-bg-color);
+    border-bottom: 1px solid var(--primary-color);
+
 }
-.header a:hover {
-    color: var(--primary-color);
-    text-decoration: underline;
-    text-underline-offset: 8px;
+.header .nav-list a:hover {
+    background-color: var(--primary-color);
+    border: none;
+    border-bottom: 1px solid var(--primary-color);
+    color: black;
 }
 
 .logout {
     color: white;
     text-decoration: none;
-    cursor: pointer;
+    display: inline-block;
+    width: 100%;
+    padding: 0.5rem;
+    background-color: var(--primary-bg-color);
+    border-bottom: 1px solid var(--primary-color);
 }
 .logout:hover {
-    color: var(--primary-color);
-    text-decoration: underline;
-    text-underline-offset: 8px;
+    background-color: var(--primary-color);
+    border: none;
+    border-bottom: 1px solid var(--primary-color);
+    color: black;
 }
 
-@media (max-width: 374px) {
+.nav-bar {
+    display: none;
+}
+
+.menu-button {
+    position: relative;
+}
+
+.menu-button ~ .menu-check:checked ~ .nav-bar {
+    display: block;
+    height: auto;
+    position: absolute;
+    top: 4.5rem;
+    right: 0;
+    padding: 1rem;
+    background-color: rgba(14, 14, 14, 0.9);
+}
+
+.menu-img {
+    width: 30px;
+}
+
+@media (min-width: 768px) {
     .logo-header {
         width: 65px;
     }
+    .menu-button {
+        display: none;
+    }
+    .nav-bar {
+        display: block;
+        position: static;
+        background-color: transparent;
+        color:white;
+    }
+    .header {
+        padding: 1rem 2rem;
+    }
+    .nav-list {
+        padding: 0;
+        list-style: none;
+        flex-direction: row;
+        width: 100%;
+        gap: 2rem;
+        padding: 0;
+    }
+    .nav-list li {
+        width: fit-content;
+    }
+    .header .nav-list a {
+        color: white;
+        text-decoration: none;
+        border: none;
+        background-color: transparent;
+    }
+    .header .nav-list a:hover {
+        color: var(--primary-color);
+        text-decoration: underline;
+        text-underline-offset: 8px;
+        background-color: transparent;
+        border: none;
+    }
+    .logout {
+        color: white;
+        text-decoration: none;
+        cursor: pointer;
+        border: none;
+        background-color: transparent;
+    }   
+    .logout:hover {
+        color: var(--primary-color);
+        text-decoration: underline;
+        text-underline-offset: 8px;
+        background-color: transparent;
+        border: none;
+    }
+
 }

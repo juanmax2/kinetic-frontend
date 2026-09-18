@@ -8,6 +8,23 @@
     margin-top: 3rem;
 }
 
+.login-link-container {
+    display: flex;
+    margin-top: 4px;
+}
+
+.login-link {
+    display: inline-block;
+    text-align: center;
+    margin: auto;
+    color: var(--tertiary-color);
+}
+.login-link a {
+    color: var(--primary-color);
+    text-decoration: none;
+    margin-left: 4px;
+}
+
 @media (min-width: 412px) {
     .logo-image {
         width: 150px;

@@ -1,0 +1,40 @@
+.graphics-container-component {
+    width: 90%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1rem;
+}
+.graphics-title-component {
+    text-align: center;
+}
+.graphics-select-container {
+    display: flex;
+    margin: auto;
+    justify-content: center;
+}
+.graphics-select-component {
+    background-color: var(--primary-bg-color);
+    border: none;
+    border-bottom: 1px solid var(--primary-color);
+    color: white;
+    width: 60%;
+}
+
+@media (min-width: 768px) {
+    .graphics-container-component{
+        justify-content: left;
+        width: 70%;
+        padding: 1rem 2rem;
+    }
+    .graphics-title-component {
+        text-align: left;
+        padding-left: 2rem;
+    }
+    .graphics-select-container {
+        margin: 1rem 1.5rem;
+        width: 60%;
+        justify-content: left;
+    }
+}
