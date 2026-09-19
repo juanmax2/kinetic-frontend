@@ -178,7 +178,7 @@ export function RoutineForm({
                 />
             </div>
 
-            <ExerciseSelector handleAddExercise={handleAddExercise} />
+            <ExerciseSelector handleAddExercise={handleAddExercise} routineExercises={routineExercises}/>
 
             <div className="exercises-change-container">
                 <h3 className='create-routine-title'>Routine</h3>

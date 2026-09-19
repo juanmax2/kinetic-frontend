@@ -123,7 +123,6 @@
 .exercise-card {
     display: grid;
     grid-template-columns: 5fr 1fr;
-    justify-content: space-between;
     gap: 3rem;
     align-items: center;
 }
@@ -152,6 +151,13 @@
     color: black;
     padding: 6px 12px;
     display: inline-block;
+    margin-left: auto;
+}
+.exercise-selector-container .added {
+    opacity: 0.8;
+    background-color: var(--secondary-bg-color);
+    border: 1px solid var(--primary-color);
+    color: var(--primary-color);
 }
 .create-routine-title {
     margin-bottom: 1rem;

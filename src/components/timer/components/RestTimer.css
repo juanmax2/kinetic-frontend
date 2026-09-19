@@ -1,14 +1,19 @@
 .rest-timer-container {
-    width: 60%;
-    margin: 3rem auto 2rem auto;
-    background-color: var(--secondary-bg-color);
+    width: 70%;
+    margin: 0 auto;
+    background-color: rgba(14,14,14,0.9);
     padding: 1rem;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 1rem;
     border-radius: 1rem;
-    
+
+    position: sticky;
+    top: 0.5rem;
+    z-index: 100;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(8px);
 }
 .rest-timer-display strong{
     color: var(--primary-color);
@@ -35,6 +40,6 @@
 
 @media (min-width: 768px) {
     .rest-timer-container {
-        width: 30%;
+        width: 40%;
     }
 }
