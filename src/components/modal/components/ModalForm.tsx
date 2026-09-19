@@ -24,9 +24,9 @@ export function ModalForm({onSubmitExercise}: Props) {
         setMuscleGroup(value)
     }
 
-    const handleSubmit = (event: SubmitEvent) => {
+    const handleSubmit = (event: React.SubmitEvent<HTMLFormElement>) => {
         event.preventDefault()
-
+        event.stopPropagation()
         if(!name.trim()) return
 
         onSubmitExercise({
@@ -38,7 +38,7 @@ export function ModalForm({onSubmitExercise}: Props) {
 
     return (
 
-        <form className="modal-form" onSubmit={() => handleSubmit}>
+        <form className="modal-form" onSubmit={(e) => handleSubmit(e)}>
 
             <input onChange={handleNameChange} type="text" className="input-name-modal" placeholder="Press banca" />
 
