@@ -59,18 +59,22 @@
     position: relative;
 }
 
-.menu-button ~ .menu-check:checked ~ .nav-bar {
-    display: block;
-    height: auto;
-    position: absolute;
-    top: 4.5rem;
-    right: 0;
-    padding: 1rem;
-    background-color: rgba(14, 14, 14, 0.9);
-}
 
 .menu-img {
     width: 30px;
+}
+
+@media (max-width: 767px) {
+    .menu-button ~ .menu-check:checked ~ .nav-bar {
+        display: block;
+        height: auto;
+        position: absolute;
+        top: 4.5rem;
+        right: 0;
+        padding: 1rem;
+        background-color: rgba(14, 14, 14, 0.9);
+        z-index: 11111111;
+    }
 }
 
 @media (min-width: 768px) {

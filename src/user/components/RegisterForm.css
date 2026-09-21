@@ -23,10 +23,11 @@
     margin: 1rem 0;
 }
 .register-form-container input {
-    background-color: var(--primary-bg-color);
+    background-color: var(--secondary-bg-color);
     border: none;
     border-bottom: 1px solid var(--primary-color);
     color: white;
+    text-align: center;
 }
 
 .register-form-container button{

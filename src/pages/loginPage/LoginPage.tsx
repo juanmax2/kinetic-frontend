@@ -15,7 +15,7 @@ export function LoginPage() {
                 <Link to={`/register/`}>
                     click here
                 </Link>
-            </small>
+                </small>
             </div>
         </>
     )
