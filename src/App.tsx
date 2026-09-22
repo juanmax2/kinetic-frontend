@@ -13,7 +13,14 @@ function App() {
   useEffect(() => {
     if (!hasChecked.current){
       hasChecked.current = true
-      checkAuth()
+      const isLogged = localStorage.getItem('is_logged')
+
+      if (isLogged) {
+        checkAuth()
+      }else {
+        useAuth.setState({ isLoading: false })
+      }
+
     }
   }, [checkAuth])
 

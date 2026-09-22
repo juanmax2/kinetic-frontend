@@ -43,7 +43,7 @@ export function Graphics() {
             {isLoading && <p>Loading...</p>}
             {isError && <p>{error?.message}</p>}
             {(data && data.length === 0) && (
-                <h3>No results for this exercise</h3>
+                <h3 className="no-results-title">No results for this exercise</h3>
             )}
             {(data && data.length > 0) && (
                 <ExerciseGraphic data={data} />

@@ -16,7 +16,10 @@
 
 .logo-header {
     width: 90px;
+    transition: .3s ease-in-out;
 }
+
+
 
 .header .nav-list a {
     color: white;
@@ -130,6 +133,10 @@
         text-underline-offset: 8px;
         background-color: transparent;
         border: none;
+    }
+    .logo-header:hover {
+        transform: scale(1.15);
+        box-shadow: 5px 5px 10px 0 rgb(49, 49, 49);
     }
 
 }

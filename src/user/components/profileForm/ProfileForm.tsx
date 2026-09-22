@@ -5,18 +5,22 @@ import { InputForm } from "../../../components/inputForm/InputForm"
 import { SelectForm } from "../../../components/selectForm/SelectForm"
 import { Button } from "../../../components/button/Button"
 import { useAuth } from "../../../store/useAuth.store"
-import { useNavigate } from "react-router-dom"
+import { useNavigate, useSearchParams } from "react-router-dom"
 import './ProfileForm.css'
+import { useEffect } from "react"
 
 export function ProfileForm(){
     
     const updateProfile = useAuth(state => state.updateProfile)
     const user = useAuth(state => state.user)
     const isLoading = useAuth(state => state.isLoading)
+    const [searchParams] = useSearchParams()
+    const focusTarget = searchParams.get("focus")
+
 
     const navigate = useNavigate()
 
-    const { control, handleSubmit, reset } = useForm<FormProfileValues>({
+    const { control, handleSubmit, reset, setFocus } = useForm<FormProfileValues>({
         resolver: zodResolver(profileSchema), defaultValues: {
             username: user?.username || "",
             email: user?.email || "",
@@ -27,6 +31,21 @@ export function ProfileForm(){
             goal: user?.profile?.goal || "maintenance"
         }
     })
+
+    useEffect(() => {
+        if (focusTarget === "weight") {
+            const timer = setTimeout(() => {
+                setFocus("weight")
+            }, 50)
+
+            return () => clearTimeout(timer)
+        } else if (focusTarget === "calories") {
+            const timer = setTimeout(() => {
+                setFocus("goal")
+            }, 50)
+            return () => clearTimeout(timer)
+        }
+    }, [focusTarget, setFocus])
 
     if (isLoading) {
         return <p>Cargando perfil...</p>

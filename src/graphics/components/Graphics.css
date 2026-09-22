@@ -14,6 +14,12 @@
     margin: auto;
     justify-content: center;
 }
+
+.graphics-select-container #graphics:focus {
+    background-color: var(--primary-color);
+    color: black;
+}
+
 .graphics-select-component {
     background-color: var(--primary-bg-color);
     border: none;
@@ -21,6 +27,11 @@
     color: white;
     width: 60%;
 }
+.no-results-title {
+    margin: 2rem auto;
+    color: var(--primary-color)
+}
+
 
 @media (min-width: 768px) {
     .graphics-container-component{
@@ -33,8 +44,13 @@
         padding-left: 2rem;
     }
     .graphics-select-container {
-        margin: 1rem 1.5rem;
+        margin: 1rem 0;
+        padding-left: 2rem;
         width: 60%;
         justify-content: left;
+    }
+    .no-results-title {
+        margin: 2rem 0;
+        padding-left: 2rem;
     }
 }

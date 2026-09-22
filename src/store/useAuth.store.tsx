@@ -44,7 +44,7 @@ export const useAuth = create<AuthStoreType>()(
             set({ isLoading: true })
             try {
                 const response = await api.post<LoginResponse>('/auth/login/', credentials)
-
+                localStorage.setItem('is_logged', 'true')
                 set({
                     user: response.data.user,
                     isLoggedIn: true,
@@ -62,15 +62,18 @@ export const useAuth = create<AuthStoreType>()(
             try {
                 const response = await api.post('/auth/logout/')
                 console.log(response)
+
+            } catch(error) {
+                set({ isLoading: false });
+                console.error("Logout error:", error)
+                throw error;
+            } finally {
+                localStorage.removeItem('is_logged')
                 set({
                     user: null,
                     isLoggedIn: false,
                     isLoading: false,
                 })
-            } catch(error) {
-                set({ isLoading: false });
-                console.error("Logout error:", error)
-                throw error;
             }
         },
 
@@ -93,6 +96,8 @@ export const useAuth = create<AuthStoreType>()(
         },
 
         checkAuth: async () => {
+
+            if (useAuth.getState().isLoading && useAuth.getState().user) return
             set({ isLoading: true })
             console.log(useAuth.getState().isLoading)
             try {
