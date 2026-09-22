@@ -20,4 +20,18 @@
     border: none;
     border-bottom: 1px solid var(--primary-color);
     color: white;
-}   
+}
+.weight input:focus{
+    background-color: var(--primary-color);
+    border: none;
+    border-bottom: 1px solid var(--primary-color);
+    color: black;
+}    
+
+
+@media (min-width: 768px) {
+    .workout-exercise-container {
+        display: grid;
+        grid-template-columns: 8fr 1fr 1fr 1fr;
+    }
+}

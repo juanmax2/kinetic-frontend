@@ -35,7 +35,7 @@ export function RoutineDetailMount({routine}: Props) {
 
     return (
         <section className="routine-detail-container">
-            <h1>{routine.name.charAt(0).toUpperCase() + routine.name.slice(1)}</h1>
+            <h1 className="routine-detail-title">{routine.name.charAt(0).toUpperCase() + routine.name.slice(1)}</h1>
             <ul>
                 {routine.routine_exercises.map(exercise => (
                     <CardExerciseDetail key={exercise.exercise} exercise={exercise} />

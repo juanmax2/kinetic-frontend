@@ -43,10 +43,10 @@
 }
 
 .description-rountine:focus {
-    background-color: var(--primary-bg-color);
+    background-color: var(--primary-color);
     border: none;
     border-bottom: 1px solid var(--primary-color);
-    color: white;
+    color: black;
 }
 
 /* Exercise selector form */
@@ -73,10 +73,10 @@
 }
 
 .input-search-muscle:focus {
-    background-color: var(--primary-bg-color);
+    background-color: var(--primary-color);
     border: none;
     border-bottom: 1px solid var(--primary-color);
-    color: white;
+    color: black;
 }
 
 .select-container {
@@ -90,6 +90,12 @@
     border: none;
     border-bottom: 1px solid var(--primary-color);
     color: white;
+}
+.select-container select:focus {
+    background-color: var(--primary-color);
+    border: none;
+    border-bottom: 1px solid var(--primary-color);
+    color: black;
 }
 
 .exercise-selector-add {
@@ -205,6 +211,11 @@
     .container-numbers {
         justify-content: center;
     }
+    .new-routine-title {
+        text-align: left;
+        width: 70%;
+        margin: 2rem auto;
+    }
 }
 
 .new-routine-form button {
@@ -266,6 +277,13 @@
     color: white;
 }
 
+.exercise-sets input:focus {
+    background-color: var(--primary-color);
+    border: none;
+    border-bottom: 1px solid var(--primary-color);
+    color: black;
+}
+
 .exercise-reps {
     display: flex;
     gap: 0.5rem;
@@ -277,6 +295,14 @@
     border-bottom: 1px solid var(--primary-color);
     color: white;
 }
+
+.exercise-reps input:focus {
+    background-color: var(--primary-color);
+    border: none;
+    border-bottom: 1px solid var(--primary-color);
+    color: black;
+}
+
 .container-numbers {
     display: flex;
     gap: 1rem;
