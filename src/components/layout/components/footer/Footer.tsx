@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import './Footer.css'
 
 export function Footer() {
@@ -13,12 +14,12 @@ export function Footer() {
             <div className="footer-legal">
                 <h4>Legal</h4>
                 <ul>
-                    <li>Política de privacidad</li>
-                    <li>Términos de uso</li>
+                    <li className='footer-legal-link'><Link to="/privacy-policy">Política de privacidad</Link></li>
+                    <li className='footer-legal-link'><Link to="/terms-of-use">Términos de uso</Link></li>
                 </ul>
             </div>
             <div className="footer-bottom">
-                <p>&copy; {currentYear} Kinetic. Creado por Juanma González.</p>
+                <p>&copy; {currentYear} Kinetic. Created by Juanma González.</p>
             </div>
         </footer>
     )

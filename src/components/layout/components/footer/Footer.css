@@ -39,3 +39,14 @@
 .footer-bottom {
     font-style: italic;
 }
+
+.footer-legal-link a{
+    color: white;
+    text-decoration: none;
+}
+
+.footer-legal-link a:hover{
+    color: var(--primary-color);
+    text-decoration: underline;
+    text-underline-offset: 8px;
+}
