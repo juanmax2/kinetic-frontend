@@ -26,7 +26,7 @@
     border: none;
     border-bottom: 1px solid var(--primary-color);
     color: black;
-}    
+}   
 
 
 @media (min-width: 768px) {
@@ -35,3 +35,9 @@
         grid-template-columns: 8fr 1fr 1fr 1fr;
     }
 }
+
+/* @media (min-width: 1024px) {
+    .workout-exercise-container{
+        width: 60%;
+    }
+} */

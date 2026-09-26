@@ -44,3 +44,9 @@
         width: 40%;
     }
 }
+
+@media (min-width: 1024px) {
+    .rest-timer-container {
+        width: 20%;
+    }
+}
